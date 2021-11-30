@@ -13,16 +13,16 @@ public class GoogleSearch {
     private static final String SEARCH_BUTTON = "btnK";
     private static final String TEXT_BOX = "q";
     private static final String URL = "https://www.google.lk/";
-    private final AutomationWebDriver webBrowser;
+    private final AutomationWebDriver webDriver;
 
     public GoogleSearch(AutomationWebDriver webDriver) {
-        this.webBrowser = webDriver;
-        initializeWebDriver();
+        this.webDriver = webDriver;
+        navigateToUrl();
     }
 
-    private void initializeWebDriver() {
+    private void navigateToUrl() {
         try {
-            this.webBrowser.openWebBrowser(BrowserType.CHROME).navigateToUrl(URL);
+            this.webDriver.navigateToUrl(URL);
         } catch (WebDriverInitializationException e) {
             //TODO: Log this in future.
             e.printStackTrace();
@@ -31,13 +31,13 @@ public class GoogleSearch {
 
     public void search(String text) {
         try {
-            this.webBrowser.findWebElement(TEXT_BOX, ElementSelector.NAME).typeValue(text);
-            this.webBrowser.waitFor(2, TimeUnit.SECONDS);
-            this.webBrowser.findWebElement(SEARCH_BUTTON, ElementSelector.NAME).click();
-            this.webBrowser.waitFor(5, TimeUnit.SECONDS);
+            this.webDriver.findWebElement(TEXT_BOX, ElementSelector.NAME).typeValue(text);
+            this.webDriver.waitFor(2, TimeUnit.SECONDS);
+            this.webDriver.findWebElement(SEARCH_BUTTON, ElementSelector.NAME).click();
+            this.webDriver.waitFor(2, TimeUnit.SECONDS);
 
             //Close the webDriver
-            this.webBrowser.stopWebBrowser();
+            this.webDriver.stopWebBrowser();
 
         } catch (ElementSelectorNotFoundException | WebDriverWaitException e) {
             e.printStackTrace();

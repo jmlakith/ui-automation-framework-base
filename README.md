@@ -7,3 +7,8 @@ the testing logic from Selenium framework and from its keywords.
 Which will ease the integration of other UI test automation frameworks or replace 
 the existing one, connected to your testing logic.
 As a summary, Your logic is portable among any UI automation frameworks if you use this.
+
+###[Setup Guide]
+Change driver location here:- java.framework.mappings.SeleniumWebDriver.openWebBrowser()
+
+//TODO: Better Exception handling, Introduce the Json Interface, Improve wait function. 

@@ -23,7 +23,9 @@ public class SeleniumWebDriver implements AutomationWebDriver {
         //TODO: Read configs from the application.properties in future
         System.setProperty("webdriver.chrome.driver",
                 "C:\\Users\\Dell\\IdeaProjects\\ui-automation-framework-base\\chromedriver.exe");
+        //TODO: Create a Selenium browser factory
         ChromeOptions options = new ChromeOptions();
+        //Headless mode on currently
         options.addArguments("--headless", "--window-size=1920,1200");
         webDriver = new ChromeDriver(options);
         return this;

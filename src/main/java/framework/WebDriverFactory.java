@@ -6,11 +6,11 @@ import framework.settings.WebDriverName;
 import java.util.HashMap;
 import java.util.Map;
 
-public class WebBrowserFactory {
+public class WebDriverFactory {
 
     private final Map<WebDriverName, AutomationWebDriver> driverList = new HashMap<>();
 
-    public WebBrowserFactory() {
+    public WebDriverFactory() {
         init();
     }
 
@@ -18,8 +18,7 @@ public class WebBrowserFactory {
         driverList.put(WebDriverName.SELENIUM, new SeleniumWebDriver());
     }
 
-    public AutomationWebDriver getBrowser(WebDriverName name) {
-
+    public AutomationWebDriver getWebDriver(WebDriverName name) {
         return driverList.get(name);
     }
 }
